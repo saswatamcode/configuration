@@ -96,6 +96,7 @@ const (
 	StepSyntheticsApi = "synthetics-api"
 
 	StepThanosRules = "thanos-rules"
+	StepSLORules    = "slo-rules"
 )
 
 // DefaultBuildSteps returns the default build pipeline for clusters
@@ -114,6 +115,7 @@ func DefaultBuildSteps() []string {
 		StepGateway,       // Gateway configuration
 		StepSyntheticsApi, // Synthetics API configuration
 		StepThanosRules,   // Thanos metamonitoring Rules configuration
+		StepSLORules,      // SLO Rules configuration
 	}
 }
 

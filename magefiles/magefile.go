@@ -79,6 +79,10 @@ var BuildStepFunctions = map[string]func(Build, clusters.ClusterConfig) error{
 		b.ThanosRules(cfg)
 		return nil
 	},
+	clusters.StepSLORules: func(b Build, cfg clusters.ClusterConfig) error {
+		b.SLORules(cfg)
+		return nil
+	},
 }
 
 // ExecuteSteps executes a list of build steps for a cluster

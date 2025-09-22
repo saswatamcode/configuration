@@ -11,6 +11,13 @@ objects:
     name: observatorium-lokistack
     namespace: rhobs-stage
   spec:
+    limits:
+      global:
+        ingestion:
+          ingestionBurstSize: 16
+          ingestionRate: 12
+        queries:
+          queryTimeout: 3m
     managementState: Managed
     size: ${LOKI_SIZE}
     storage:
@@ -21,6 +28,15 @@ objects:
         name: ${LOKI_STORAGE_SECRET_NAME}
         type: s3
     storageClassName: ${LOKI_STORAGE_CLASS}
+    template:
+      distributor:
+        replicas: 3
+      ingester:
+        replicas: 3
+      querier:
+        replicas: 2
+      queryFrontend:
+        replicas: 2
   status:
     components: {}
     storage: {}

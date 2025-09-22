@@ -62,20 +62,6 @@ objects:
         - probes
         tenants:
         - hcp
-      - name: hcp-probes-read
-        permissions:
-        - read
-        resources:
-        - probes
-        tenants:
-        - hcp
-      - name: hcp-probes-write
-        permissions:
-        - write
-        resources:
-        - probes
-        tenants:
-        - hcp
   kind: ConfigMap
   metadata:
     annotations:
@@ -151,7 +137,7 @@ objects:
           - --tenants.config=/etc/observatorium/tenants.yaml
           - --logs.write-timeout=4m0s
           - --server.read-timeout=5m
-          - --probes.endpoint=http://synthetics-api.rhobs-int.svc.cluster.local:8080
+          - --probes.endpoint=http://synthetics-api.rhobs-int.svc.cluster.local:8080/probes
           image: quay.io/redhat-user-workloads/rhobs-mco-tenant/rhobs-konflux-obs-api:9011fb0ead0c0a7d248cd11945a321fc48df8707
           livenessProbe:
             failureThreshold: 10

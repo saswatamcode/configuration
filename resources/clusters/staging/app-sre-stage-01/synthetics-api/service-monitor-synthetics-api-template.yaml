@@ -25,7 +25,7 @@ objects:
       port: metrics
     namespaceSelector:
       matchNames:
-      - rhobs-stage
+      - ${NAMESPACE}
     selector:
       matchLabels:
         app.kubernetes.io/component: synthetics-api
